@@ -267,3 +267,8 @@ C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\zh-Hans\Micro
 C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
+C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\yesim.gorur\source\CoreDemoV3\CoreDemoV3\obj\Debug\net6.0\CoreDemoV3.MvcApplicationPartsAssemblyInfo.cs

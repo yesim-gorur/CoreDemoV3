@@ -11,9 +11,17 @@ namespace CoreDemoV3.Controllers
         {
             //index blogların listelendiği sayfa
 
-            var values=bm.GetList();
+            //  var values=bm.GetList(); ben blog listelemeyi categori adını da ekleyerek yaptıgımdan bu satır kalacak
+            var values = bm.GetBlogListWithCategory();// kategoriyli olanı çağır diyorum
 
             return View(values);
+        }
+        public IActionResult BlogReadAll(int id)
+        { 
+        
+            var values=bm.GetBlogById(id); 
+            return View(values);
+        
         }
     }
 }
