@@ -17,8 +17,8 @@ namespace CoreDemoV3.Controllers
             return View(values);
         }
         public IActionResult BlogReadAll(int id)
-        { 
-        
+        {
+            ViewBag.i = id;// burda id yi taşımak istiyorum viewbag.i=id diyerek
             var values=bm.GetBlogById(id); 
             return View(values);
         
