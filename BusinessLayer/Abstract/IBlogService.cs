@@ -14,7 +14,8 @@ namespace BusinessLayer.Abstract
         void BlogUpdate(Blog blog);
         Blog GetById(int id);
         List<Blog> GetList();
-        List<Blog> GetBlogListWithCategory();
+        List<Blog> GetBlogListWithCategory();//kategoriye göre blogları listeliyor.
+        List<Blog> GetBlogListByWriter(int id);//Bunda ise yazara göre blogları listeliyor
         
 
     }
