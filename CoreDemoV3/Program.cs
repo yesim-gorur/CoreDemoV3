@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
@@ -17,6 +18,17 @@ builder.Services.AddMvc(config =>
 
 
 });
+
+//burda yaptýgým iþlem þu sen login sayfasýndaki sayfa linklerine týkladýgýnda hata ile karþýlaþma diye seni bir return url e yönlendiriyor
+builder.Services.AddMvc();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Login/Index";
+
+}
+
+
+);
 
 var app = builder.Build();
 
@@ -38,6 +50,7 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}"); // burada
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseAuthentication();//bunu yazmadan önce sisteme giriþ yapmadý bunu yazdýktan sonra giriþ yaptý
 app.UseRouting();
 
 app.UseAuthorization();

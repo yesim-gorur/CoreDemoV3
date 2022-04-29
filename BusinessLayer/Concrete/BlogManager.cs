@@ -43,9 +43,14 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Blog> GetList()
+        public List<Blog> GetList()// blogları biz birdan alıyoruz
         {
             return _blogDal.GetListAll();
+        }
+        // parametreli bir şekilde
+        public List<Blog> GetLast3Blog()// blogları biz birdan alıyoruz son 3 blogu cagır
+        {
+            return _blogDal.GetListAll().Take(3).ToList();//sadece3 tanesini getir.
         }
         public List<Blog> GetBlogById(int id)
         { 

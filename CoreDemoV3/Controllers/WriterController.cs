@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemoV3.Controllers
 {
-    [Authorize]
+    
     public class WriterController : Controller
     {
-        
+       
         public IActionResult Index()
         {
             return View();
@@ -23,6 +23,15 @@ namespace CoreDemoV3.Controllers
             return View();
         
         
+        }
+        //writer ile alakalı bir sayfa oluşturacagaım bunun için
+        [AllowAnonymous] // şuan test sayfam açılsın diye allowanoymous yaptım
+        public IActionResult Test()
+        {
+
+            return View();
+
+
         }
     }
 }
