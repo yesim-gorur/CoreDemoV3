@@ -6,9 +6,10 @@ namespace CoreDemoV3.Views.Shared.Components.Comments
 {
     public class CommentListByBlog : ViewComponent//view component oldugundan burdan miras alacak
     {
+        CommentManager cm = new CommentManager(new EfCommentRepository());
         public IViewComponentResult Invoke(int id)
         {
-            CommentManager cm = new CommentManager(new EfCommentRepository());
+           
             var values = cm.GetList(id);
             return View(values);
 

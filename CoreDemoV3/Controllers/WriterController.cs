@@ -33,5 +33,20 @@ namespace CoreDemoV3.Controllers
 
 
         }
+        [AllowAnonymous]
+        public PartialViewResult WriterNavbarPartial()
+        { 
+         return PartialView();
+        
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterFooterPartial()
+        {
+
+            return PartialView();
+        
+        
+        
+        }
     }
 }

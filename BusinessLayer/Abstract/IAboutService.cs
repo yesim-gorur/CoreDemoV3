@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IAboutService
+    public interface IAboutService:IGenericService<About>
     {
         List<About> GetList();// şuan için bana lazım olan şey hakkımızda sayfasına hakkımızda detaylarının getirilmesi o sebeple tek bu metodu yazdım
     }
