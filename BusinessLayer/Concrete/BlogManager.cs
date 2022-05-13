@@ -33,9 +33,9 @@ namespace BusinessLayer.Concrete
         //    throw new NotImplementedException();
         //}
         // parametreli bir şekilde
-        public Blog GetById(int id)
+        public Blog TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _blogDal.GetById(id);//id ye göre blogu getirecek
         }
 
         public List<Blog> GetList()// blogları biz birdan alıyoruz
@@ -69,14 +69,14 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Blog t)
         {
-            throw new NotImplementedException();
+           _blogDal.Delete(t);
         }
 
         public void TUpdate(Blog t)
         {
-            throw new NotImplementedException();
+            _blogDal.Update(t);
         }
-        public List<Blog> Test(int id)
+        public List<Blog> GetListWithCategoryByWriterBm(int id)
         {
             return _blogDal.GetListWithCategoryByWriter(id);
         }

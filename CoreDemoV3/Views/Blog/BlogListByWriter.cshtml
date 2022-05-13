@@ -30,11 +30,11 @@
         <tr>
             <th>@item.BlogId</th>
             <td>@item.BlogTitle</td>
-            <td>@item.BlogCreateDate</td>
+            <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
             <td>@item.Category.CategoryName</td>
             <td>@item.BlogStatus</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+            <td><a href="/Blog/DeleteBlog/@item.BlogId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Blog/EditBlog/@item.BlogId" class="btn btn-warning">Düzenle</a></td>@* blog içindeki editblog sayfasına item id ile gidecek*@
            
 
 

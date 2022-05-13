@@ -13,6 +13,7 @@ namespace CoreDemoV3.Controllers
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());//verilere erişebilmek için bunu yapmak zorundayım
         public IActionResult Index()
         {
             //index blogların listelendiği sayfa
@@ -33,7 +34,7 @@ namespace CoreDemoV3.Controllers
         public IActionResult BlogListByWriter()//yazara göre blog listesi..sisteme otantike olan yazara göre blog listesi
         {
 
-            var values = bm.Test(1);
+            var values = bm.GetListWithCategoryByWriterBm(1);
             return View(values);
         
         }
@@ -44,7 +45,7 @@ namespace CoreDemoV3.Controllers
 
             //amacım bir dropdown ile kategorileri sıralamak bunun için kategorymanageri kullanmam lazımki verilere ulaşa bileyim
 
-            CategoryManager cm = new CategoryManager(new EfCategoryRepository());//verilere erişebilmek için bunu yapmak zorundayım
+          
             List<SelectListItem> categoryvalues = (from x in cm.GetList()
                                                    select new SelectListItem
                                                    { Text=x.CategoryName,
@@ -85,6 +86,43 @@ namespace CoreDemoV3.Controllers
 
             }
             return View();
+
+        }
+        public IActionResult DeleteBlog(int id)
+        { //silme yapabilmen için öncelikle silinecek degeri bulman gerekiyor
+            var blogvalue=bm.TGetById(id);//bu ifade ile ben ilgili blogu buldum ve degerlerini blogvalue diye bir degişkene atadım
+            bm.TDelete(blogvalue);//blogvalue degerini siliyoruz komple
+            return RedirectToAction("BlogListByWriter");
+   
+        
+        
+        }
+        [HttpGet]// amacım sayfa yuklendiği zaman sen bana verileri getir.
+        public IActionResult EditBlog(int id)//bu id almalı cünkü sebep id ye göre getirecek bana bilgileri
+        {
+            var blogvalue = bm.TGetById(id);// id ye göre önce bana getir degerleri
+            //list ile viewbag arası komutları yazmamın amacı kategorileri dropdowna yüklemek  edit blog metodu çalıştığında bunları da yüklesin
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+            ViewBag.cv = categoryvalues;
+            return View(blogvalue);
+        
+        
+        }
+        [HttpPost]// amacım sayfa yuklendiği zaman sen bana verileri getir.
+        public IActionResult EditBlog(Blog p)//Blog cinsinden p parametresi alacak
+        {
+            p.WriterId = 1;
+            p.BlogImage = "resim";
+
+            bm.TUpdate(p);
+
+            return RedirectToAction("BlogListByWriter");//sen işin bittiklten sonra bloglistby writer adresine git
+
 
         }
     }
